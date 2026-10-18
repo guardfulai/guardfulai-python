@@ -1,0 +1,739 @@
+[
+  {
+    "name": "complete_allow",
+    "valid": true,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "failed_status",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "failed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "missing_status",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": null,
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "unknown_schema",
+    "valid": false,
+    "result": {
+      "schema_version": 2,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "contradiction",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": false
+    }
+  },
+  {
+    "name": "invalid_decision",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": [],
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "bool_version",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": true,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "missing_id",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": null,
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "missing_usage",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": null,
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "bad_findings",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {}
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "bad_coverage",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "missing_runtime",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": null,
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "bool_credits",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": true,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "allow_with_block_finding",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "block"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "redaction_flag_without_action",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "monitor"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "decision_without_findings",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "flagged": false,
+      "redacted": false,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": false
+    }
+  },
+  {
+    "name": "empty_coverage",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": false,
+      "redacted": false,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [],
+      "checks_run": [],
+      "coverage": [],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "non_text_redaction",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": 42,
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": null,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  },
+  {
+    "name": "score_outside_range",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "flagged": true,
+      "redacted": true,
+      "redacted_content": "Contact [REDACTED]",
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "data.email",
+          "code": "email",
+          "score_kind": "rule_match",
+          "score": 2,
+          "start": 8,
+          "end": 26,
+          "action": "redact_and_allow"
+        }
+      ],
+      "checks_run": [
+        "data.email"
+      ],
+      "coverage": [
+        "data.email"
+      ],
+      "scan_policy_version": 1,
+      "runtime_bundle": "foundation-email-v1",
+      "usage": {
+        "schema_version": 1,
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "safe_to_continue": true
+    }
+  }
+]

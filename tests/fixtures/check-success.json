@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "scan_id": "00000000-0000-4000-8000-000000000201",
+  "status": "completed",
+  "decision": "allow",
+  "flagged": true,
+  "redacted": true,
+  "redacted_content": "Contact [REDACTED]",
+  "findings": [
+    {
+      "schema_version": 1,
+      "check_key": "data.email",
+      "code": "email",
+      "score_kind": "rule_match",
+      "score": null,
+      "start": 8,
+      "end": 26,
+      "action": "redact_and_allow"
+    }
+  ],
+  "checks_run": ["data.email"],
+  "coverage": ["data.email"],
+  "scan_policy_version": 1,
+  "runtime_bundle": "foundation-email-v1",
+  "usage": {"schema_version": 1, "units": 1, "credits": 1, "pricing_version": "credits-v1"},
+  "replayed": false,
+  "safe_to_continue": true
+}

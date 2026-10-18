@@ -1,0 +1,86 @@
+{
+  "format_version": 1,
+  "files": {
+    "scan-results.json": {
+      "sha256": "56096446a532ba8e07941603b6046780fa1227ff12f9150fde80c295bfdc2086",
+      "cases": [
+        "complete_allow",
+        "failed_status",
+        "missing_status",
+        "unknown_schema",
+        "contradiction",
+        "invalid_decision",
+        "bool_version",
+        "missing_id",
+        "missing_usage",
+        "bad_findings",
+        "bad_coverage",
+        "missing_runtime",
+        "bool_credits",
+        "allow_with_block_finding",
+        "redaction_flag_without_action",
+        "decision_without_findings",
+        "empty_coverage",
+        "non_text_redaction",
+        "score_outside_range"
+      ]
+    },
+    "custom-policy-results.json": {
+      "sha256": "c335410ab099b0017f57a5a934729f30aeb6c7b31d7b7a5a9bde363f03426f99",
+      "cases": [
+        "no_match",
+        "policy_match",
+        "ambiguous",
+        "insufficient_context",
+        "conflicting_policy",
+        "missing_coverage",
+        "partial",
+        "duplicate",
+        "unknown_reason",
+        "unknown_id",
+        "missing_finding",
+        "wrong_finding_reason",
+        "uncertainty_allow",
+        "uncertainty_block_action",
+        "unknown_outcome",
+        "violation_review_cannot_allow",
+        "monitor_violation_can_allow",
+        "uncertainty_with_independent_block",
+        "unknown_result_schema"
+      ]
+    },
+    "reporting-contexts.json": {
+      "sha256": "2521c924bb495e9641c1d6ec1182ca16d00c32b84eb3af14ac4f67212c6bc929",
+      "cases": [
+        "minimal",
+        "dated",
+        "offset",
+        "utc",
+        "dimensions",
+        "run",
+        "epoch",
+        "naive",
+        "wrong-date",
+        "wrong-instant",
+        "conflict",
+        "empty-record",
+        "text-record",
+        "foreign-path",
+        "bad-key",
+        "number-dimension",
+        "many-dimensions",
+        "long-dimension",
+        "byte-bound",
+        "schema",
+        "extra",
+        "invalid-time-reported",
+        "false-time-flag",
+        "invalid-time-with-date",
+        "invalid-time-with-instant",
+        "invalid-time-string",
+        "invalid-time-number",
+        "invalid-time-null"
+      ]
+    }
+  }
+}

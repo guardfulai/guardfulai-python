@@ -1,0 +1,1017 @@
+[
+  {
+    "name": "no_match",
+    "valid": true,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "safe_to_continue": true,
+      "flagged": false,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "compliant",
+          "reason_code": "no_match"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "policy_match",
+    "valid": true,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_violated",
+          "rule_id": "promise",
+          "reason_code": "policy_match",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "violated",
+          "reason_code": "policy_match"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "ambiguous",
+    "valid": true,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "insufficient_context",
+    "valid": true,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "insufficient_context",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "insufficient_context"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "conflicting_policy",
+    "valid": true,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "conflicting_policy",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "conflicting_policy"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "missing_coverage",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ]
+    }
+  },
+  {
+    "name": "partial",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 2,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "duplicate",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        },
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 2,
+        "completed": 2
+      }
+    }
+  },
+  {
+    "name": "unknown_reason",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "PRIVATE_REASON"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "unknown_id",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "unknown",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "missing_finding",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "wrong_finding_reason",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "policy_match",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "uncertainty_allow",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "safe_to_continue": true,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "uncertainty_block_action",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "block",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "block",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "unknown_outcome",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "review",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "__proto__",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "violation_review_cannot_allow",
+    "valid": false,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "safe_to_continue": true,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_violated",
+          "rule_id": "promise",
+          "reason_code": "policy_match",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "violated",
+          "reason_code": "policy_match"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "monitor_violation_can_allow",
+    "valid": true,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "safe_to_continue": true,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "monitor",
+          "code": "policy_violated",
+          "rule_id": "promise",
+          "reason_code": "policy_match",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "violated",
+          "reason_code": "policy_match"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "uncertainty_with_independent_block",
+    "valid": true,
+    "result": {
+      "schema_version": 1,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "block",
+      "safe_to_continue": false,
+      "flagged": true,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy",
+        "custom.structured_rule"
+      ],
+      "coverage": [
+        "custom.semantic_policy",
+        "custom.structured_rule"
+      ],
+      "findings": [
+        {
+          "schema_version": 1,
+          "check_key": "custom.semantic_policy",
+          "action": "review",
+          "code": "policy_uncertain",
+          "rule_id": "promise",
+          "reason_code": "ambiguous",
+          "score_kind": "classifier_score",
+          "score": null,
+          "start": null,
+          "end": null
+        },
+        {
+          "check_key": "custom.structured_rule",
+          "action": "block",
+          "code": "structured_match",
+          "rule_id": "refund"
+        }
+      ],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "uncertain",
+          "reason_code": "ambiguous"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  },
+  {
+    "name": "unknown_result_schema",
+    "valid": false,
+    "result": {
+      "schema_version": 2,
+      "scan_id": "00000000-0000-4000-8000-000000000201",
+      "status": "completed",
+      "decision": "allow",
+      "safe_to_continue": true,
+      "flagged": false,
+      "redacted": false,
+      "redacted_content": null,
+      "checks_run": [
+        "custom.semantic_policy"
+      ],
+      "coverage": [
+        "custom.semantic_policy"
+      ],
+      "findings": [],
+      "scan_policy_version": 2,
+      "runtime_bundle": "fixture-v1",
+      "usage": {
+        "units": 1,
+        "credits": 1,
+        "pricing_version": "credits-v1"
+      },
+      "replayed": false,
+      "semantic_assessments": [
+        {
+          "schema_version": 1,
+          "policy_id": "promise",
+          "outcome": "compliant",
+          "reason_code": "no_match"
+        }
+      ],
+      "semantic_coverage": {
+        "schema_version": 1,
+        "expected": 1,
+        "completed": 1
+      }
+    }
+  }
+]

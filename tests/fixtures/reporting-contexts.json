@@ -1,0 +1,283 @@
+[
+  {
+    "name": "minimal",
+    "valid": true,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17"
+    }
+  },
+  {
+    "name": "dated",
+    "valid": true,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_date": "2026-09-19"
+    }
+  },
+  {
+    "name": "offset",
+    "valid": true,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_at": "2026-09-19T12:30:00-07:00"
+    }
+  },
+  {
+    "name": "utc",
+    "valid": true,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_at": "2026-09-19T12:30Z"
+    }
+  },
+  {
+    "name": "dimensions",
+    "valid": true,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "dimensions": {
+        "team": "Support",
+        "region": "日本"
+      }
+    }
+  },
+  {
+    "name": "run",
+    "valid": true,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "run_id": "00000000-0000-4000-8000-000000000003"
+    }
+  },
+  {
+    "name": "epoch",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_at": 1234
+    }
+  },
+  {
+    "name": "naive",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_at": "2026-09-19T12:30:00"
+    }
+  },
+  {
+    "name": "wrong-date",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_date": "2026-02-30"
+    }
+  },
+  {
+    "name": "wrong-instant",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_at": "2026-02-30T12:00:00Z"
+    }
+  },
+  {
+    "name": "conflict",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_date": "2026-09-19",
+      "event_at": "2026-09-19T12:00:00Z"
+    }
+  },
+  {
+    "name": "empty-record",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": ""
+    }
+  },
+  {
+    "name": "text-record",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "private source text"
+    }
+  },
+  {
+    "name": "foreign-path",
+    "valid": false,
+    "value": {
+      "dataset_id": "../elsewhere",
+      "record_id": "source:17"
+    }
+  },
+  {
+    "name": "bad-key",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "dimensions": {
+        "Team": "x"
+      }
+    }
+  },
+  {
+    "name": "number-dimension",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "dimensions": {
+        "team": 4
+      }
+    }
+  },
+  {
+    "name": "many-dimensions",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "dimensions": {
+        "k0": "x",
+        "k1": "x",
+        "k2": "x",
+        "k3": "x",
+        "k4": "x",
+        "k5": "x",
+        "k6": "x",
+        "k7": "x",
+        "k8": "x"
+      }
+    }
+  },
+  {
+    "name": "long-dimension",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "dimensions": {
+        "team": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      }
+    }
+  },
+  {
+    "name": "byte-bound",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "dimensions": {
+        "k0": "語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語",
+        "k1": "語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語",
+        "k2": "語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語",
+        "k3": "語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語",
+        "k4": "語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語",
+        "k5": "語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語語"
+      }
+    }
+  },
+  {
+    "name": "schema",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "schema_version": 2
+    }
+  },
+  {
+    "name": "extra",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "unknown": "not allowed"
+    }
+  },
+  {
+    "name": "invalid-time-reported",
+    "valid": true,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_time_invalid": true
+    }
+  },
+  {
+    "name": "false-time-flag",
+    "valid": true,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_time_invalid": false
+    },
+    "expected": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17"
+    }
+  },
+  {
+    "name": "invalid-time-with-date",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_time_invalid": true,
+      "event_date": "2026-09-19"
+    }
+  },
+  {
+    "name": "invalid-time-with-instant",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_time_invalid": true,
+      "event_at": "2026-09-19T12:00:00Z"
+    }
+  },
+  {
+    "name": "invalid-time-string",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_time_invalid": "true"
+    }
+  },
+  {
+    "name": "invalid-time-number",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_time_invalid": 1
+    }
+  },
+  {
+    "name": "invalid-time-null",
+    "valid": false,
+    "value": {
+      "dataset_id": "00000000-0000-4000-8000-000000000002",
+      "record_id": "source:17",
+      "event_time_invalid": null
+    }
+  }
+]
