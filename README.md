@@ -1,14 +1,12 @@
 # Guardful AI Python SDK
 
 Typed synchronous and asynchronous clients for the Guardful AI HTTP API.
-Python 3.11–3.15. No local detector, model or server is included.
+Python 3.11–3.15.
 
 ## Installation
 
-The initial release is being prepared. Once published, install with:
-
 ```sh
-python -m pip install guardfulai==0.1.0
+python -m pip install guardfulai
 ```
 
 For a source checkout, use `python -m pip install .` or follow
@@ -79,7 +77,7 @@ pinned for existing workflows and exact retries.
 
 `list_policies(offset=0, limit=20)` reads a bounded page (at most 50, offset at most
 1,000). Pin the returned immutable version before estimating or checking.
-Completed check responses now require supported schema, identity, accounting and
+Completed check responses require supported schema, identity, accounting and
 consistent decision/findings/coverage; malformed or wrong-version responses raise
 content-free `ProtocolError`. `ScanResult.status` preserves the validated status.
 An explicit estimate version must also match the returned quote.
@@ -227,18 +225,18 @@ record_id_field="source_row_id")` and an explicit `DateMapping("created", "iso")
 The source identity column must be separate from scanned text. Audit responses
 expose optional `dataset_id` and `run_id`, including recovered creations. Legacy
 responses without these fields still parse. This does not change retention,
-scan execution or billing. See the repository's attribution contract (see [API documentation](https://www.guardfulai.com/docs/api/)).
+scan execution or billing. See the [API documentation](https://www.guardfulai.com/docs/api/) for attribution rules.
 
 ### Custom fields in uploads
 
 `create_audit` accepts optional `structured_fields` column mappings and
-`context_field` in both clients. See the typed upload mapping guide (see [API documentation](https://www.guardfulai.com/docs/api/))
+`context_field` in both clients. See the [API documentation](https://www.guardfulai.com/docs/api/)
 for a complete example, scalar parsing rules, preflight errors and frozen retries.
 
 Custom report filters include `policy_id`, `policy_version`, `rule_id` and
 `outcome`, with `group_by="outcome"` for assessment counts. Summary and record
 responses expose `ReportAssessments`; missing historical fields remain `None`.
-See custom policy reporting (see [API documentation](https://www.guardfulai.com/docs/api/)) for rule
+See the [API documentation](https://www.guardfulai.com/docs/api/) for rule
 identity, uncertainty denominators and complete export semantics.
 
 ## Input retention and visibility
