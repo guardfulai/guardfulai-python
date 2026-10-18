@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 - 2026-10-18
+
+Update installation and release documentation
+
 ## 0.1.0 — 2026-10-18
 
 Initial independent release of the typed sync/async HTTP client, including strict
