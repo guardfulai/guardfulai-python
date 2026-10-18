@@ -1,6 +1,10 @@
 # Contributing
 
-Install Python 3.11 or newer and uv, then run `uv sync --frozen` explicitly.
+Install Python 3.11 or newer and uv, then run `make setup` explicitly.
+Without Make, run `uv sync --frozen` followed by
+`uv run --frozen --no-sync python scripts/prepare_package_cache.py`.
+Setup resolves the exact locked dependencies to cache index metadata for offline
+consumer installs; frozen sync alone only guarantees cached wheel downloads.
 Run `make check package-check` from this repository. On Windows, run the individual
 `uv run --frozen --no-sync` commands listed in the Makefile in your shell.
 Build tools and dependencies must be cached by setup before offline package checks.

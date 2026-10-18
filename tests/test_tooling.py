@@ -193,3 +193,79 @@ def test_release_rejects_nonempty_remote_without_main(monkeypatch):
     monkeypatch.setattr(release, "command", lambda *args: "a" * 40 + "\trefs/heads/other")
     with pytest.raises(ValueError, match="nonempty remote"):
         release.check_remote_history()
+
+
+@pytest.mark.parametrize("wrong", ["cli", "ssh", None])
+def test_explicit_release_identity_never_falls_back(monkeypatch, wrong):
+    from types import SimpleNamespace
+
+    monkeypatch.setenv("GH_TOKEN", "ambient-account-token")
+    monkeypatch.delenv("GIT_SSH", raising=False)
+    monkeypatch.delenv("GIT_SSH_COMMAND", raising=False)
+    monkeypatch.setattr(release, "COMMAND_ENV", None)
+    monkeypatch.setattr(release, "origin_host", lambda: "release-host")
+    monkeypatch.setattr(
+        release, "command", lambda *args: "maintainer <maintainer@example.test> 1 +0000"
+    )
+    seen = []
+
+    def run(args, **kwargs):
+        seen.append(args)
+        if args[:2] == ["git", "config"]:
+            return SimpleNamespace(returncode=1)
+        if args[:3] == ["gh", "auth", "token"]:
+            assert args[-1] == "maintainer"
+            assert "GH_TOKEN" not in kwargs["env"]
+            return SimpleNamespace(returncode=0, stdout="selected-account-token\n")
+        if args[:3] == ["gh", "api", "user"]:
+            assert kwargs["env"]["GH_TOKEN"] == "selected-account-token"
+            return SimpleNamespace(returncode=0, stdout="other" if wrong == "cli" else "maintainer")
+        assert args[0] == "ssh" and args[-1] == "git@release-host"
+        login = "other" if wrong == "ssh" else "maintainer"
+        return SimpleNamespace(
+            returncode=1,
+            stdout="",
+            stderr=(
+                f"Hi {login}! You've successfully authenticated, "
+                "but GitHub does not provide shell access.\n"
+            ),
+        )
+
+    monkeypatch.setattr(release.subprocess, "run", run)
+    if wrong:
+        with pytest.raises(ValueError, match="identity"):
+            release.configure_identity("maintainer")
+        assert release.COMMAND_ENV is None
+        if wrong == "cli":
+            assert not any(args[0] == "ssh" for args in seen)
+    else:
+        release.configure_identity("maintainer")
+        assert release.COMMAND_ENV["GH_TOKEN"] == "selected-account-token"
+
+
+@pytest.mark.parametrize("hostname,accepted", [("github.com", True), ("example.test", False)])
+def test_origin_alias_preserves_only_intended_destination(monkeypatch, hostname, accepted):
+    def command(*args):
+        if args[0] == "ssh":
+            assert args == ("ssh", "-G", "git@release-host")
+            return f"hostname {hostname}\nuser git\n"
+        return "git@release-host:guardfulai/guardfulai-python.git"
+
+    monkeypatch.setattr(release, "command", command)
+    if accepted:
+        assert release.origin_host() == "release-host"
+    else:
+        with pytest.raises(ValueError, match="resolve"):
+            release.origin_host()
+
+
+def test_socketpair_works_but_direct_connections_stay_blocked():
+    import socket
+
+    a, b = socket.socketpair()
+    with a, b:
+        a.sendall(b"test")
+        assert b.recv(4) == b"test"
+    for method in ("connect", "connect_ex"):
+        with socket.socket() as sock, pytest.raises(AssertionError, match="mocked"):
+            getattr(sock, method)(("127.0.0.1", 1))

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -25,10 +26,98 @@ from package_acceptance import (
 )
 
 REPOSITORY = "guardfulai/guardfulai-python"
+COMMAND_ENV: dict[str, str] | None = None
 
 
 def command(*args: str) -> str:
-    return subprocess.check_output(list(args), cwd=ROOT, text=True).strip()
+    if args[0] == "gh" and COMMAND_ENV is None:
+        raise ValueError("Select and verify the GitHub release account first")
+    return subprocess.check_output(list(args), cwd=ROOT, text=True, env=COMMAND_ENV).strip()
+
+
+def origin_host() -> str:
+    origins = command("git", "remote", "get-url", "--push", "--all", "origin").splitlines()
+    if len(origins) != 1:
+        raise ValueError("origin must have exactly one push URL")
+    match = re.fullmatch(
+        r"git@([A-Za-z0-9][A-Za-z0-9.-]*):" + re.escape(REPOSITORY) + r"(?:\.git)?", origins[0]
+    )
+    if not match:
+        raise ValueError("origin must use SSH for the intended public repository")
+    fetch = command("git", "remote", "get-url", "--all", "origin").splitlines()
+    if fetch != origins:
+        raise ValueError("origin fetch and push identities must match")
+    host = match[1]
+    config = dict(
+        line.split(None, 1)
+        for line in command("ssh", "-G", "git@" + host).splitlines()
+        if " " in line
+    )
+    if config.get("hostname") != "github.com" or config.get("user") != "git":
+        raise ValueError("origin SSH alias must resolve to git@github.com")
+    return host
+
+
+def configure_identity(username: str) -> None:
+    global COMMAND_ENV
+    COMMAND_ENV = None
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9-]{0,38}", username):
+        raise ValueError("Supply the explicit GitHub username with --github-user")
+    environment = os.environ.copy()
+    for key in (
+        "GH_TOKEN",
+        "GITHUB_TOKEN",
+        "GH_ENTERPRISE_TOKEN",
+        "GITHUB_ENTERPRISE_TOKEN",
+        "GH_HOST",
+    ):
+        environment.pop(key, None)
+    if (
+        any(environment.get(key) for key in ("GIT_SSH", "GIT_SSH_COMMAND"))
+        or subprocess.run(
+            ["git", "config", "--get", "core.sshCommand"], cwd=ROOT, capture_output=True
+        ).returncode
+        == 0
+    ):
+        raise ValueError("Use the configured SSH alias without Git SSH command overrides")
+    host = origin_host()
+    credential = subprocess.run(
+        ["gh", "auth", "token", "--hostname", "github.com", "--user", username],
+        cwd=ROOT,
+        env=environment,
+        capture_output=True,
+        text=True,
+    )
+    if credential.returncode or not credential.stdout.strip():
+        raise ValueError("GitHub CLI has no credential for the requested account")
+    environment["GH_TOKEN"] = credential.stdout.strip()
+    environment["GH_HOST"] = "github.com"
+    identity = subprocess.run(
+        ["gh", "api", "user", "--jq", ".login"],
+        cwd=ROOT,
+        env=environment,
+        capture_output=True,
+        text=True,
+    )
+    if identity.returncode or identity.stdout.strip() != username:
+        raise ValueError("GitHub CLI identity does not match the requested account")
+    probe = subprocess.run(
+        ["ssh", "-o", "BatchMode=yes", "-o", "StrictHostKeyChecking=yes", "-T", "git@" + host],
+        cwd=ROOT,
+        env=environment,
+        capture_output=True,
+        text=True,
+    )
+    greeting = (
+        f"Hi {username}! You've successfully authenticated, "
+        "but GitHub does not provide shell access."
+    )
+    if probe.returncode != 1 or greeting not in (probe.stdout + probe.stderr).splitlines():
+        raise ValueError("SSH identity does not match the requested GitHub account")
+    for role in ("GIT_AUTHOR_IDENT", "GIT_COMMITTER_IDENT"):
+        if command("git", "var", role).split(" <", 1)[0] != username:
+            raise ValueError("Git author and committer names must match the release account")
+    COMMAND_ENV = environment
 
 
 def accepted(version: str) -> dict:
@@ -51,14 +140,7 @@ def prepare_dispatch(version: str) -> list[str]:
         raise ValueError("release requires a clean public checkout")
     if command("git", "branch", "--show-current") != "main":
         raise ValueError("release must start on main")
-    origins = command("git", "remote", "get-url", "--push", "--all", "origin").splitlines()
-    allowed = {
-        f"https://github.com/{REPOSITORY}.git",
-        f"https://github.com/{REPOSITORY}",
-        f"git@github.com:{REPOSITORY}.git",
-    }
-    if len(origins) != 1 or origins[0] not in allowed:
-        raise ValueError("origin must identify the intended public repository")
+    origin_host()
     value = accepted(version)
     commit = command("git", "rev-parse", "HEAD")
     args = [
@@ -93,7 +175,8 @@ def check_remote_history() -> bool:
     return True
 
 
-def publish(version: str) -> None:
+def publish(version: str, username: str) -> None:
+    configure_identity(username)
     # All validation completes before any remote mutation.
     command(sys.executable, "-m", "ruff", "check", ".")
     command(sys.executable, "-m", "ruff", "format", "--check", ".")
@@ -234,11 +317,15 @@ def verify(version: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", required=True)
+    parser.add_argument("--github-user", default=os.environ.get("GUARDFULAI_GITHUB_USER", ""))
     action = parser.add_mutually_exclusive_group(required=True)
     action.add_argument("--publish", action="store_true")
     action.add_argument("--verify", action="store_true")
     args = parser.parse_args()
-    (publish if args.publish else verify)(args.version)
+    if args.publish:
+        publish(args.version, args.github_user)
+    else:
+        verify(args.version)
 
 
 if __name__ == "__main__":

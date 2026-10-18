@@ -4,6 +4,7 @@ help:
 	@echo 'setup: explicit dependency install; check: offline checks; package-check: offline artifacts and clean installs'
 setup:
 	uv sync --frozen
+	uv run --frozen --no-sync python scripts/prepare_package_cache.py
 check:
 	uv run --frozen --no-sync ruff check .
 	uv run --frozen --no-sync ruff format --check .

@@ -29,6 +29,7 @@ jobs:
         with:
           version: '0.12.15'
       - run: uv sync --frozen
+      - run: uv run --frozen --no-sync python scripts/prepare_package_cache.py
       - run: uv run --frozen --no-sync ruff check .
       - run: uv run --frozen --no-sync ruff format --check .
       - run: uv run --frozen --no-sync mypy

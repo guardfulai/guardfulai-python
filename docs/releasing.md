@@ -7,7 +7,7 @@ repository visibility are separate owner actions. No live API requests are neede
 ## Prepare locally
 
 1. Update the version in `pyproject.toml` and the changelog, run `uv lock`, then
-   `uv sync --frozen`. Review all changes and run `make check package-check`.
+   `make setup`. Review all changes and run `make check package-check`.
 2. Commit reviewed public source on `main`. Run the source/history audit again.
    Keep `dist/provenance.json` and its wheel/sdist hashes for release authorization.
    Artifacts contain only approved source; no private evidence belongs in this repository.
@@ -32,8 +32,18 @@ See [PyPI trusted publishing](https://docs.pypi.org/trusted-publishers/) and
 
 ## Authorized release
 
-Run `uv run --frozen --no-sync python scripts/release.py --version VERSION --publish`
-from the clean, reviewed public checkout, replacing VERSION with the accepted version.
+Run `uv run --frozen --no-sync python scripts/release.py --version VERSION --github-user USERNAME --publish`
+from the clean, reviewed public checkout, replacing VERSION with the accepted version
+and USERNAME with the explicitly authorized maintainer's GitHub login. Alternatively,
+set `GUARDFULAI_GITHUB_USER` and omit `--github-user`.
+
+Use an SSH origin for `guardfulai/guardfulai-python`; an existing SSH host alias is
+preserved and must resolve to `git@github.com`. Fetch and push URLs must match.
+Git author/committer names must equal that login. The helper selects only that
+GitHub CLI user's stored credential and verifies both API and SSH authentication
+before any remote mutation. Ambient tokens and another active CLI account cannot
+substitute for the requested identity. It does not alter account settings, Git
+configuration, keys or remotes. Missing or mismatched identity stops the command.
 This validates local artifacts, pushes reviewed main, creates/pushes its immutable tag,
 and dispatches the exact workflow with accepted hashes. It never force-pushes.
 Approve the waiting `pypi` environment deployment only for that accepted release.

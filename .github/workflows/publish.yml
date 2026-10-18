@@ -45,6 +45,7 @@ jobs:
           version: '0.12.15'
       - run: python scripts/validate_release.py
       - run: uv sync --frozen
+      - run: uv run --frozen --no-sync python scripts/prepare_package_cache.py
       - run: make check package-check
       - run: python scripts/validate_release.py --artifacts
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
