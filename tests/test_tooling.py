@@ -35,7 +35,7 @@ def test_archive_duplicate_and_link_rejected(tmp_path):
         inspect_wheel(wheel)
     sdist = tmp_path / "bad.tar.gz"
     with tarfile.open(sdist, "w:gz") as archive:
-        member = tarfile.TarInfo("guardfulai-0.1.0/link")
+        member = tarfile.TarInfo(f"guardfulai-{release.VERSION}/link")
         member.type = tarfile.SYMTYPE
         member.linkname = "/etc/passwd"
         archive.addfile(member)
@@ -62,7 +62,7 @@ def test_release_refuses_dirty_tree_before_any_remote_action(monkeypatch):
 
     monkeypatch.setattr(release, "command", command)
     with pytest.raises(ValueError, match="clean"):
-        prepare_dispatch("0.1.0")
+        prepare_dispatch(release.VERSION)
     assert commands == [("git", "status", "--porcelain")]
 
 
@@ -83,19 +83,26 @@ def test_release_refuses_wrong_origin(monkeypatch):
 
     monkeypatch.setattr(release, "command", command)
     with pytest.raises(ValueError, match="origin"):
-        prepare_dispatch("0.1.0")
+        prepare_dispatch(release.VERSION)
 
 
 def test_release_requires_exact_artifacts(tmp_path, monkeypatch):
+    version = release.VERSION
     monkeypatch.setattr(release, "ROOT", tmp_path)
     (tmp_path / "dist").mkdir()
     (tmp_path / "dist/provenance.json").write_text(
-        json.dumps({"version": "0.1.0", "package": "guardfulai", "artifacts": []})
+        json.dumps({"version": version, "package": "guardfulai", "artifacts": []})
     )
     with pytest.raises(ValueError, match="exactly"):
-        accepted("0.1.0")
+        accepted(version)
+
+
+@pytest.mark.parametrize("version", ["0.1.0", "1.2.4", "1.2.3rc1", "1.2.3; touch forbidden"])
+def test_release_rejects_wrong_version_before_reading_artifacts(tmp_path, monkeypatch, version):
+    monkeypatch.setattr(release, "ROOT", tmp_path)
+    monkeypatch.setattr(release, "VERSION", "1.2.3")
     with pytest.raises(ValueError, match="version"):
-        accepted("0.1.0; touch forbidden")
+        accepted(version)
 
 
 def test_release_guard_checks_ref_commit_and_digests(tmp_path, monkeypatch):
