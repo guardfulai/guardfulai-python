@@ -6,13 +6,15 @@ repository visibility are separate owner actions. No live API requests are neede
 
 ## Prepare locally
 
-1. Update the version in `pyproject.toml` and the changelog, run `uv lock`, then
-   `make setup`. Review all changes and run `make check package-check`.
-2. Commit reviewed public source on `main`. Run the source/history audit again.
+1. Choose an unused version, update `pyproject.toml` and the changelog, then run
+   `uv lock` and `make setup`. Preserve the previous `dist/` outside the checkout
+   before running `make check package-check` for the new version.
+2. Commit reviewed source on a release branch and merge its pull request after the
+   required CI checks pass. Update local `main` and run the source/history audit again.
    Keep `dist/provenance.json` and its wheel/sdist hashes for release authorization.
    Artifacts contain only approved source; no private evidence belongs in this repository.
 3. Obtain authorization for the source commit, version and the two artifact hashes.
-   Version 0.1.0 is the initial release. A missing registry project does not reserve its name.
+   A missing registry project does not reserve its name.
 
 ## One-time account setup
 
